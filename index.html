@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<style type="text/css">
+			div{
+				width: 400px;
+				background: rgba(0,0,0,0.5);
+				color: #fff;
+				text-align: center;
+				padding: 25px 20px;
+			}
+			h3{
+				font-size: 30px;
+			}
+			p{
+				height: 30px;
+				line-height: 30px;
+				width: 80%;
+				margin: 0 auto;
+			}
+			p span{
+				float: left;
+			}
+			i{
+				float: right;
+				font-style: normal;
+			}
+			div>div{
+				padding:0  5px;
+				background: #fff;
+				width: 300px;
+				margin: 0 auto;
+				color: #000;
+				line-height: 40px;
+				position: relative;
+			}
+			.box{
+				z-index: 1;
+				width: 270px;
+				text-align: left;
+				padding: 5px 20px;
+				left: 0;
+				position: absolute;
+				display: none;
+				background: #fff;
+				color: #000;
+			}
+			li{
+				height: 20px;
+				line-height: 20px;
+				cursor: pointer;
+			}
+			.xl{
+				float: right;
+				width: 30px;
+				border-left: 1px solid #ccc;
+				cursor: pointer;
+			}
+			.btn{
+				cursor: pointer;
+				font-size: 20px;
+				background: #0094EF;
+				color: #fff;
+				margin-top: 20px;
+			}
+			b{
+				font-weight: normal;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<h3>快速搜索消费贷款</h3>
+			<p><span>贷款金额：</span><i>不足一万可用小数点代替</i></p>
+			<div class="div">
+				<input type="text" value="5" />
+				<span>万元</span>
+				<div class="xl">v</div>
+				<ul class="box">
+					<li><b>5</b><i>万元</i></li>
+					<li><b>10</b><i>万元</i></li>
+					<li><b>15</b><i>万元</i></li>
+					<li><b>20</b><i>万元</i></li>
+					<li><b>25</b><i>万元</i></li>
+					<li><b>30</b><i>万元</i></li>
+				</ul>
+			
+			</div>
+			<p><span>贷款期限：</span></p>
+			<div class="div">
+				<input type="text" value="1" />
+				<span>年</span>
+				<div class="xl">v</div>
+				<ul class="box">
+					<li><b>6</b><i>月</i></li>
+					<li><b>1</b><i>年</i></li>
+					<li><b>18</b><i>月</i></li>
+					<li><b>2</b><i>年</i></li>
+					<li><b>3</b><i>年</i></li>
+					<li><b>5</b><i>年</i></li>
+				</ul>
+			</div>
+			<div class="btn">
+				搜索一下
+			</div>
+			<p>
+				6194种信贷产品   2000家银行  140家小贷公司
+			</p>
+		</div>
+	</body>
+	<script src="js/jquery-3.2.1.js"></script>
+	<script type="text/javascript">
+		$(".xl").click(function(ev){
+			ev.stopPropagation()
+			$(this).next().toggle()
+		})
+		$(".box>li").click(function(){
+			$(this).parents(".div").find("input").val($(this).find("b").html())
+			$(this).parents(".div").find("span").html($(this).find("i").html())
+			$(this).parent().hide()
+		})
+		$(".box>li").hover(function(){
+			
+			$(this).css("background","lightblue")
+		},function(){
+			$(this).css("background","#fff")
+		})
+		$(document).click(function(){
+			$(".xl").next().hide()	
+		
+		})
+	</script>
+</html>
